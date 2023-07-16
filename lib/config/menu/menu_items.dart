@@ -4,7 +4,7 @@ class MenuItem {
   final String title;
   final String description;
   final String url;
-  final Icon icon;
+  final IconData icon;
 
   const MenuItem(
       {required this.title,
@@ -18,10 +18,10 @@ const menuItems = <MenuItem>[
       title: 'Buttons',
       description: 'Some Material UI 3 buttons',
       url: '/buttons',
-      icon: Icon(Icons.radio_button_checked_rounded)),
+      icon: Icons.business_center_outlined),
   MenuItem(
       title: 'Cards',
       description: 'Some Material UI 3 cards',
       url: '/cards',
-      icon: Icon(Icons.card_membership_outlined))
+      icon: Icons.card_membership_outlined)
 ];
