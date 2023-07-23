@@ -23,5 +23,10 @@ const menuItems = <MenuItem>[
       title: 'Cards',
       description: 'Some Material UI 3 cards',
       url: '/cards',
-      icon: Icons.card_membership_outlined)
+      icon: Icons.card_membership_outlined),
+  MenuItem(
+      title: 'Progress Indicators',
+      description: 'Some progress indicators examples',
+      url: '/progress-indicators',
+      icon: Icons.replay_outlined),
 ];
