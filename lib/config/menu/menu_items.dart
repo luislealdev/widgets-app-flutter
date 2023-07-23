@@ -29,4 +29,9 @@ const menuItems = <MenuItem>[
       description: 'Some progress indicators examples',
       url: '/progress-indicators',
       icon: Icons.replay_outlined),
+  MenuItem(
+      title: 'Snackbars',
+      description: 'Snackbars and dialogs',
+      url: '/snackbars',
+      icon: Icons.info_outline_rounded),
 ];
