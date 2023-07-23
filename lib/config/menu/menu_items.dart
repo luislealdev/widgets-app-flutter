@@ -34,4 +34,10 @@ const menuItems = <MenuItem>[
       description: 'Snackbars and dialogs',
       url: '/snackbars',
       icon: Icons.info_outline_rounded),
+  MenuItem(
+      title: 'Animated',
+      description:
+          'A widget that is animated when changing one of his properties',
+      url: '/animated',
+      icon: Icons.rectangle_outlined),
 ];
