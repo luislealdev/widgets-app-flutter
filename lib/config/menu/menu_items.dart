@@ -40,4 +40,9 @@ const menuItems = <MenuItem>[
           'A widget that is animated when changing one of his properties',
       url: '/animated',
       icon: Icons.rectangle_outlined),
+  MenuItem(
+      title: 'UI Controlls',
+      description: 'Some checkbox and switchers',
+      url: '/ui-controlls',
+      icon: Icons.settings_power_outlined),
 ];
