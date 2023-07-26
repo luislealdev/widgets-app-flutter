@@ -45,4 +45,9 @@ const menuItems = <MenuItem>[
       description: 'Some checkbox and switchers',
       url: '/ui-controlls',
       icon: Icons.settings_power_outlined),
+  MenuItem(
+      title: 'Tutorial',
+      description: 'A quick app tutorial to start using the app',
+      url: '/tutorial',
+      icon: Icons.home),
 ];
