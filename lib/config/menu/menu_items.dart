@@ -50,4 +50,9 @@ const menuItems = <MenuItem>[
       description: 'A quick app tutorial to start using the app',
       url: '/tutorial',
       icon: Icons.home),
+  MenuItem(
+      title: 'Infinite scroll',
+      description: 'An infinite scroll with refresher',
+      url: '/infinite-scroll',
+      icon: Icons.list_alt_outlined),
 ];
