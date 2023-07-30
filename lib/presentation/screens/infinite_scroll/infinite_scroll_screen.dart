@@ -1,4 +1,6 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class InfiniteScrollScreen extends StatefulWidget {
   const InfiniteScrollScreen({super.key});
@@ -52,22 +54,46 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        removeBottom: true,
-        child: ListView.builder(
-            controller: scrollController,
-            itemCount: imagesIds.length,
-            itemBuilder: (context, index) {
-              return FadeInImage(
-                  placeholder:
-                      const AssetImage("assets/images/jar-loading.gif"),
-                  image: NetworkImage(
-                      "https://picsum.photos/id/${imagesIds[index]}/500/300"));
-            }),
-      ),
-    );
+        backgroundColor: Colors.black,
+        body: Stack(children: [
+          MediaQuery.removePadding(
+            context: context,
+            removeTop: true,
+            removeBottom: true,
+            child: ListView.builder(
+                controller: scrollController,
+                itemCount: imagesIds.length,
+                itemBuilder: (context, index) {
+                  return FadeInImage(
+                      placeholder:
+                          const AssetImage("assets/images/jar-loading.gif"),
+                      image: NetworkImage(
+                          "https://picsum.photos/id/${imagesIds[index]}/500/300"));
+                }),
+          ),
+          isLoading
+              ? Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    child: FadeOut(
+                      child: SpinPerfect(
+                        child: const Icon(
+                          Icons.change_circle_outlined,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : const SizedBox()
+        ]),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: const Icon(Icons.arrow_back),
+        ));
   }
 }
