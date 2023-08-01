@@ -33,6 +33,19 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     imagesIds.addAll([1, 2, 3, 4, 5].map((e) => lastId + e));
   }
 
+  Future<void> onRefresh() async {
+    if (!isMounted) return;
+    isLoading = true;
+    setState(() {});
+    await Future.delayed(const Duration(seconds: 3));
+    final lastId = imagesIds.last;
+    imagesIds.clear();
+    imagesIds.add(lastId + 1);
+    addFiveImages();
+    isLoading = false;
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
@@ -60,16 +73,21 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
             context: context,
             removeTop: true,
             removeBottom: true,
-            child: ListView.builder(
-                controller: scrollController,
-                itemCount: imagesIds.length,
-                itemBuilder: (context, index) {
-                  return FadeInImage(
-                      placeholder:
-                          const AssetImage("assets/images/jar-loading.gif"),
-                      image: NetworkImage(
-                          "https://picsum.photos/id/${imagesIds[index]}/500/300"));
-                }),
+            child: RefreshIndicator(
+              edgeOffset: 10,
+              strokeWidth: 2,
+              onRefresh: onRefresh,
+              child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: imagesIds.length,
+                  itemBuilder: (context, index) {
+                    return FadeInImage(
+                        placeholder:
+                            const AssetImage("assets/images/jar-loading.gif"),
+                        image: NetworkImage(
+                            "https://picsum.photos/id/${imagesIds[index]}/500/300"));
+                  }),
+            ),
           ),
           isLoading
               ? Align(
