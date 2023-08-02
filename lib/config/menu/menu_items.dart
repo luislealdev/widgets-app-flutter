@@ -55,4 +55,9 @@ const menuItems = <MenuItem>[
       description: 'An infinite scroll with refresher',
       url: '/infinite-scroll',
       icon: Icons.list_alt_outlined),
+  MenuItem(
+      title: 'Counter',
+      description: 'Initial UI for a counter using Riverpood',
+      url: '/counter',
+      icon: Icons.numbers),
 ];
