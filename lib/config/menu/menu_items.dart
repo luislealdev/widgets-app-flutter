@@ -60,4 +60,9 @@ const menuItems = <MenuItem>[
       description: 'Initial UI for a counter using Riverpood',
       url: '/counter',
       icon: Icons.numbers),
+  MenuItem(
+      title: 'Theme',
+      description: 'Change theme with provider',
+      url: '/theme-changer',
+      icon: Icons.color_lens),
 ];
